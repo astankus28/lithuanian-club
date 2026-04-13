@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  generateBuildId: async () => 'build',
   images: {
     remotePatterns: [
       {
@@ -8,6 +9,12 @@ const nextConfig = {
         hostname: '**.supabase.co',
       },
     ],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.cache = false;
+    }
+    return config;
   },
 };
 
