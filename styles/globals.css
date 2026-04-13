@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #1a2e1a;
+  --forest-light: #2d4a2d;
+  --forest-dark: #0d1a0d;
+  --crimson: #8b1a1a;
+  --crimson-light: #b52525;
+  --amber: #c9952a;
+  --amber-light: #e3b84a;
+  --parchment: #f5edd6;
+  --gold: #d4a843;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--forest-dark);
+  color: var(--parchment);
+  font-family: 'IM Fell English', serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--forest-dark); }
+::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--crimson-light); }
+
+@layer components {
+  .section-heading {
+    @apply font-cinzel text-3xl md:text-4xl lg:text-5xl text-amber-club tracking-widest uppercase;
+  }
+
+  .btn-primary {
+    @apply font-cinzelPlain uppercase tracking-widest text-sm px-8 py-3 bg-crimson hover:bg-crimson-light text-parchment border border-crimson-light transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply font-cinzelPlain uppercase tracking-widest text-sm px-8 py-3 bg-transparent hover:bg-forest-light text-parchment border border-amber-club transition-all duration-300;
+  }
+
+  .admin-card {
+    @apply bg-forest-light border border-amber-club/20 rounded p-6;
+  }
+
+  .input-field {
+    @apply w-full bg-forest border border-amber-club/30 text-parchment px-4 py-2 rounded font-fell focus:outline-none focus:border-amber-club;
+  }
+
+  .label-text {
+    @apply block text-amber-club font-cinzelPlain text-sm tracking-wider mb-1 uppercase;
+  }
+}
